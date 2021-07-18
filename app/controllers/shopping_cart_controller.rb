@@ -1,5 +1,5 @@
 class ShoppingCartController < ApplicationController
-  before_action :ensure_user_logged_in
+  before_action :ensure_user_logged_in, :verify_authenticity_token
 
   def index
     @cart_items = ShoppingCart.all
