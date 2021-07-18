@@ -1,0 +1,61 @@
+.MenuCategory-Name {
+  font-size: 28px;
+  padding: 2% 0 0.5%;
+  color: rgb(0, 0, 99);
+  margin-left: 0;
+  /* text-align: center; */
+}
+.MenuItem-Name {
+  font-size: 20px;
+  color: rgb(0, 3, 158);
+}
+.CartHeading {
+  font-size: 1.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 2%;
+  padding: 2% 0;
+  color: rgb(20, 145, 26);
+}
+.vertical-line {
+  border-right: 2px solid;
+}
+.Menu {
+  font-size: 2.5rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  margin: 1% 0 0.7%;
+  padding: 1% 0;
+  color: rgb(0, 0, 99);
+}
+.CheckoutHeading {
+  font-size: 2rem;
+  font-family: Montserrat;
+  font-weight: 700;
+  text-align: center;
+  padding: 1% 0;
+  color: darkgreen;
+}
+.plus-minus {
+  display: flex;
+  align-items: center;
+}
+.CartItem-NumberCount {
+  font-size: 1.5rem;
+  margin: 0 0.8rem;
+}
+.shoppingCart-ItemHeading {
+  font-size: 1.2rem;
+}
+.shoppingCart-Item {
+  font-size: 1rem;
+}
+.plus-minus-shoppingcart {
+  display: flex;
+  align-items: center;
+}
+.QuantityHeading {
+  margin-left: 15%;
+}

@@ -1,0 +1,23 @@
+<%= form_with(model: menu_category) do |form| %>
+  <% if menu_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menu_category.errors.count, "error") %> prohibited this menu_category from being saved:</h2>
+
+      <ul>
+        <% menu_category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row field">
+    <% form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: :name %>
+  </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn rails_link_to" %>  
+  </div>
+<% end %>

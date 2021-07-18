@@ -1,0 +1,25 @@
+.rails_link_to {
+  color: green;
+  text-decoration: none;
+}
+.rails_link_to:hover {
+  color: green;
+  background-color: transparent;
+}
+.MenuCategoryDropdown-text {
+  text-align: center;
+}
+.ShowMenuCategoryName-label {
+  font-size: 20px;
+  color: darkblue;
+  font-family: Montserrat;
+  font-weight: 300;
+  display: inline;
+}
+.ShowMenuCategory-name {
+  font-size: 20px;
+  color: red;
+  padding-left: 0.2%;
+  font-weight: 100;
+  display: inline;
+}

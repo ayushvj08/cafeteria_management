@@ -1,0 +1,12 @@
+       <% @menu_items.each do |menu_item| %>
+
+        <div class="btn-group dropstart">
+        <i class=" btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+          <ul class="dropdown-menu" >
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Show Item", menu_item, class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Edit Item", edit_menu_item_path(menu_item), class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Destroy Item", menu_item, method: :delete, data: { confirm: "Are you sure?" }, class: "rails_link_to" %></p></li>
+            <% # <li><hr class="dropdown-divider"></li> %>
+          </ul>
+        </div>
+<% end %>

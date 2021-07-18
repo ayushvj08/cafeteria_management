@@ -1,0 +1,20 @@
+<br/>
+<div class="container">
+<p class="ShowMenuCategoryName-label">
+  <strong class="ShowMenuCategoryName-label">Name:</strong>
+  <div class="ShowMenuCategory-name">
+  <%= @user.name %>
+</p>
+<p class="ShowMenuCategoryName-label">
+  <strong class="ShowMenuCategoryName-label">Email:</strong>
+  <div class="ShowMenuCategory-name">
+  <%= @user.email %>
+</p>
+<p class="ShowMenuCategoryName-label">
+  <strong class="ShowMenuCategoryName-label">Role:</strong>
+  <div class="ShowMenuCategory-name">
+  <%= @user.role %>
+</p>
+</div>
+<%= link_to "Edit", edit_user_path(@user), class: "btn rails_link_to" %> 
+<%= link_to "Back", users_path, class: "btn rails_link_to" %>

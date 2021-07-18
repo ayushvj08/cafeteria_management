@@ -1,0 +1,10 @@
+<% if !@order.first %>
+  <h3 style="text-align:center;">No orders! Please Checkout some Items from Cart to place an order.</h3>
+<% end %>
+
+<div class=container style="display:flex;justify-content:space-between;">
+    <%= link_to "Back", cafe_path, class: "btn btn-success", style: "color:#fff;" %>
+</div>
+<br/>
+
+<%= render partial: "order" %>

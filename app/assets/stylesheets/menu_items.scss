@@ -1,0 +1,19 @@
+// Place all the styles related to the MenuItems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.MenuItemDetails {
+  font-family: Montserrat;
+  font-size: 20px;
+  display: inline;
+}
+.MenuItemLabel {
+  color: darkblue;
+  font-weight: 300;
+}
+.MenuItemField-Description {
+  font-size: 20px;
+  color: red;
+  font-weight: 100;
+  display: inline;
+  padding-left: 0.2%;
+}

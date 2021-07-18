@@ -1,0 +1,38 @@
+<% # Bootstrap cdn %>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <% if flash[:msg] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:msg] %>
+      </div>
+    <% end %>
+
+    <% if flash[:error] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:error] %>
+        </div>
+    <% end %>
+
+<h3 class="NewUsers-title"  style=text-align:center;margin-top:30px;>Sign In!</h3>
+<br/>
+
+<section class="container UsersNew">
+
+<%= form_with url: sessions_path do |form| %>
+
+
+    <div class="form-group Form-section">  
+        <% # <p class="FormInput-label">Email <span>*</span> </p> %>
+        <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input" %>
+    </div>
+   <br/>
+    <div class="form-group Form-section">  
+        <% # <p class="FormInput-label">Password <span>*</span> </p> %>
+        <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input" %>
+    </div>
+    <div class="form-group Form-section">
+        <%= form.submit "login", class: "Form-submit btn btn-success", style: "margin-top:20px;color:#fff;" %>
+    </div>
+<% end %>
+
+</section>

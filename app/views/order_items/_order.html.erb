@@ -1,0 +1,55 @@
+<div class="container">
+
+<% @order.each do |order| %>
+<% @order_items = OrderItem.where(order_id: order.id) %>
+
+<div class="container" style="display:flex;justify-content:space-between;"> 
+    <p style="font-size:1rem;">#Order_Id: <%= order.id %></p>
+    <p style="font-size:1rem;"> Order_date: <%= order.date %></p>
+    <p style="font-size:1rem;"> Order_status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p>
+    <% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
+    <p> <%= link_to "Mark As Delivered", order_update_path(order), method: :put, class: "btn btn-primary" %></p>
+    <% end %>
+</div>
+
+  <h3 class="OrderItem-Heading">
+    Order Items
+  </h3>
+
+      <div class="container" style="display:flex;justify-content:space-between;font-weight:bold;">
+        <p class="shoppingCart-ItemHeading"  >Item </p>
+        <p class="shoppingCart-ItemHeading QuantityHeading">Qty</p>
+        <p class="shoppingCart-ItemHeading">Price</p>
+      </div>
+        <hr>
+        <% # Grouping cart items in a hash %>
+        <% order_items = @order_items.group_by { |model| model = model.menu_item_name } %>
+        
+        <% total = 0 %>
+        <% order_items.each do |order_item| %>
+        <% total = total + @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count * order_item.last.first.menu_item_price %>
+        
+        <section class="container">
+          <div style=display:flex;justify-content:space-between;>
+            <p style="width:20%" class="shoppingCart-Item"><%= order_item.last.first.menu_item_name %> </p>
+            <p class="shoppingCart-Item"> <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count %> </p>
+            <p class="shoppingCart-Item"> ₹ <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count * order_item.last.first.menu_item_price %> </p>
+          </div>
+        </section>
+
+        <% end %>
+
+        <hr>
+
+        <div class="container" style="display:flex; justify-content:space-between;">
+        <p class="Total">Total</p>
+        <p> ₹ <%= total %> </p>
+        </div>
+
+        <hr>
+
+</section>
+<% end %>
+
+</div>
+<br/>

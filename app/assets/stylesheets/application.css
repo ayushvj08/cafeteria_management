@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.rails_link_to {
+  color: green;
+  text-decoration: none;
+}
+.rails_link_to:hover {
+  color: green;
+  background-color: transparent;
+}

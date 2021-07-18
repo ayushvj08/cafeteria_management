@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "Hot@Cafe", cafe_path, class: "btn btn-outline-primary navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Menu", cafe_path, class: " nav-link active" %>
+          <% # <a class="nav-link active" aria-current="page" href="#">Browse Menu</a> %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Order Status", order_path, class: "nav-link" %>
+          <% # <a class="nav-link" href="#">Link</a> %>
+        </li>
+
+        <% if User.find(session[:current_user_id]).role == "admin" %>
+
+        <li class="nav-item">
+          <%= link_to "Design Menu", "/menu_categories", class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Users
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% # <li><a class="dropdown-item" href="#">View Users</a></li> %>
+            <%= link_to "View Users", users_path, class: "dropdown-item rails_link_to" %>
+            <li><hr class="dropdown-divider"></li> 
+            <%= link_to "Create Billing Staff", new_user_path(:role => "billing staff"), user: @users, class: "dropdown-item rails_link_to" %>
+
+            <% # <li><hr class="dropdown-divider"></li> %>
+            <% # <li><a class="dropdown-item" href="#">Owners</a></li> %>
+            <%= link_to "Create Admin", new_user_path(:role => "admin"), class: "dropdown-item rails_link_to" %>
+          </ul>
+        </li>
+          <!--    <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>  --->
+
+      <% end %>
+      <% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
+
+        <li class="nav-item">
+          <%= link_to "View Orders", order_view_path, class: "nav-link" %>
+        </li>
+      <% end %>
+        
+      </ul>
+
+      <form class="d-flex">
+
+         <% # <button class="btn btn-outline-success"  type="submit">Sign-Out</button> %>
+      </form>
+    </div>
+  </div>
+</nav>

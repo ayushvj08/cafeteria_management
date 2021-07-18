@@ -1,0 +1,33 @@
+
+<h2>Menu Items </h2>
+<div class="container-fluid">
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Menu category</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menu_items.each do |menu_item| %>
+      <tr>
+        <td><%= @menu_categories.find(menu_item.menu_category_id).name %></td>
+        <td><%= menu_item.name %></td>
+        <td><%= menu_item.price %></td>
+
+        <td><%= link_to "Show", menu_item, class: " rails_link_to" %></td>
+        <td><%= link_to "Edit", edit_menu_item_path(menu_item), class: " rails_link_to" %></td>
+        <td><%= link_to "Destroy", menu_item, method: :delete, data: { confirm: "Are you sure?" }, class: " rails_link_to" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br/>
+
+<% # <%= link_to "New Menu Item", new_menu_item_path, class: "rails_link_to" %>   
+
+<%= link_to "BACK", menu_categories_path, class: "btn rails_link_to" %>

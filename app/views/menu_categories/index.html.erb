@@ -1,0 +1,79 @@
+<br/>
+<h2 style=color:Darkblue;>Menu Categories</h2> 
+<br/>
+<%= link_to "Show All Menu Items", "menu_items", class: "btn btn-success", style: "color:#fff;" %>
+<br/><br/>
+<% @menu_categories.each do |menu_category| %>
+
+<nav class="navbar navbar-light bg-light">  
+  <div class="container-fluid" >
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+      data-mdb-target="#<%= menu_category.name %>ToggleExternalContent" aria-controls="navbarToggleExternalContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+
+      <i class="fas fa-bars"></i>
+    </button>
+
+        <h3> <%= menu_category.name %></h3>
+        <div class="btn-group dropstart">
+        <i class="fas fa-ellipsis-v btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+          <ul class="dropdown-menu" >
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Show Category", menu_category, class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Edit Category", edit_menu_category_path(menu_category), class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Destroy Category", menu_category, method: :delete, data: { confirm: "Are you sure?" }, class: "rails_link_to" %></p></li>
+            <% # <li><hr class="dropdown-divider"></li> %>
+          </ul>
+        </div>
+          
+  </div>
+</nav>
+<div class="collapse" id="<%= menu_category.name %>ToggleExternalContent">
+  <div class="bg-light shadow-3 p-4">
+    
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Actions</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+     <% #@menu_items.each do |menu_item| %> 
+       <% @menu_items.where(menu_category_id: menu_category.id).each do |menu_item| %>
+
+      <tr>
+        <td><%= menu_item.menu_category_id %></td>
+        <td><%= menu_item.name %></td>
+        <td><%= menu_item.price %></td>
+        <td>
+
+        <div class="btn-group dropstart">
+        <i class=" btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+          <ul class="dropdown-menu" >
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Show Item", menu_item, class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Edit Item", edit_menu_item_path(menu_item), class: "rails_link_to" %></p></li>
+            <li><p class="MenuCategoryDropdown-text" ><%= link_to "Destroy Item", menu_item, method: :delete, data: { confirm: "Are you sure?" }, class: "rails_link_to" %></p></li>
+            <% # <li><hr class="dropdown-divider"></li> %>
+          </ul>
+        </div>
+
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+    </table>
+    <br/>
+
+    <%= link_to "New Menu Item", new_menu_item_path(:menu_category_id => menu_category.id), class: "btn btn-success", style: "color:#fff;" %>
+  </div>
+</div>
+
+<% end %>
+
+<br>
+
+<%= link_to "New Menu Category", new_menu_category_path, class: "btn btn-success", style: "color:#fff;" %>
