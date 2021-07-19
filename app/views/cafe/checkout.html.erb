@@ -33,7 +33,7 @@
         </div>
 
         <hr>
-        <% if ShoppingCart.any? %>
+        <% if !ShoppingCart.where(user_id: session[:current_user_id]).any? %>
         <% flash[:error] = "Nothing to Checkout! please add items in cart to checkout" %>
         <% else %>
         <div style="text-align:center;">

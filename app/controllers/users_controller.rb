@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     )
 
     if @new_user.save
-      flash[:msg] = "Account successfully created!"
+      flash[:msg] = "Account successfully created! Please login to continue."
       redirect_to "/cafe"
     else
       flash[:error] = @new_user.errors.full_messages.join(", ")
