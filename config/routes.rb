@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post "/order/items" => "order_items#create"
   get "/order/view" => "order_items#show"
   put "/order/update" => "order_items#update"
+  get "/order/filter" => "order_items#filter"
+  post "/order/filter" => "order_items#filter_order"
 
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

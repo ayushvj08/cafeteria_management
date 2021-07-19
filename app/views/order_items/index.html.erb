@@ -1,5 +1,5 @@
-<% if !@order.first %>
-  <h3 style="text-align:center;">No orders! Please Checkout some Items from Cart to place an order.</h3>
+<% if @order.any? %>
+  <h4 style="text-align:center;">No orders! Please Checkout Items after adding them in Shopping Cart to place an order.</h4>
 <% end %>
 
 <div class=container style="display:flex;justify-content:space-between;">

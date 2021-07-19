@@ -1,0 +1,19 @@
+<div class=container style="display:flex;justify-content:space-between;">
+    <%= link_to "Back", cafe_path, class: "btn btn-success", style: "color:#fff;" %>
+</div>
+<br/>
+
+<% # Sales Calculation %>
+<% total = 0 %>
+<% @order.each do |order| %>
+<% @order_items = OrderItem.where(order_id: order.id) %>
+<% @order_items.each do |order_item| %>
+<% total = total + order_item.menu_item_price %>
+<% end %>
+<% end %>
+
+<div class=container style="text-align:center;">
+<h5 style="color:orange;">Sale for the given time frame & Order Status is ₹ <%= total %></h5></div>
+<hr/>
+
+<%= render partial: "order" %>

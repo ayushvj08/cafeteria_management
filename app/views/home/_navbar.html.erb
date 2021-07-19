@@ -14,8 +14,14 @@
           <%= link_to "My Order Status", order_path, class: "nav-link" %>
           <% # <a class="nav-link" href="#">Link</a> %>
         </li>
+        <% if User.find(@current_user.id).role == "admin" || User.find(@current_user.id).role == "billing staff" %>
 
-        <% if User.find(session[:current_user_id]).role == "admin" %>
+        <li class="nav-item">
+          <%= link_to "View Orders", order_view_path, class: "nav-link" %>
+        </li>
+      <% end %>
+
+        <% if User.find(@current_user.id).role == "admin" %>
 
         <li class="nav-item">
           <%= link_to "Design Menu", "/menu_categories", class: "nav-link" %>
@@ -35,16 +41,13 @@
             <%= link_to "Create Admin", new_user_path(:role => "admin"), class: "dropdown-item rails_link_to" %>
           </ul>
         </li>
-          <!--    <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>  --->
-
-      <% end %>
-      <% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
-
-        <li class="nav-item">
-          <%= link_to "View Orders", order_view_path, class: "nav-link" %>
+        <li>
+            <%= link_to "Filter Order", order_filter_path, class: "nav-link" %>
         </li>
+             <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>  -->
+
       <% end %>
         
       </ul>

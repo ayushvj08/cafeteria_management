@@ -14,7 +14,11 @@ class UsersController < ApplicationController
   def new
     @new_user = User.new
     @new_user[:role] = params[:role]
-    render "new", layout: false
+    if @current_user
+      render "new"
+    else
+      render "new", layout: false
+    end
   end
 
   def create

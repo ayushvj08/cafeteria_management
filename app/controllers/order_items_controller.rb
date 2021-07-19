@@ -35,9 +35,28 @@ class OrderItemsController < ApplicationController
     @order.save!
     flash[:msg] = "Order is Marked as Delivered"
     redirect_to order_view_path
-    # else
-    #   flash[:error] = "There was a problem delivering the order"
-    #   redirect_to order_view_path
-    # end
+  end
+
+  def filter_order
+    from_date = params[:from_date]
+    to_date = params[:to_date]
+    if from_date.empty? || to_date.empty?
+      flash[:error] = "Date Fields Cannot be Empty!"
+      redirect_to order_filter_path
+    elsif from_date > to_date
+      flash[:error] = "From date must be less than To date."
+      redirect_to order_filter_path
+    else
+      if params[:delivered_at] == "pending delivery"
+        @order = Order.where(date: (from_date)..to_date).where(delivered_at: nil)
+        render "filter_order"
+      elsif params[:delivered_at] == "delivered"
+        @order = Order.where(date: (from_date)..to_date).where.not(delivered_at: nil)
+        render "filter_order"
+      else
+        @order = Order.where(date: (from_date)..to_date)
+        render "filter_order"
+      end
+    end
   end
 end
