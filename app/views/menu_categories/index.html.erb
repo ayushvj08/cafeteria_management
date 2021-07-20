@@ -1,7 +1,9 @@
 <br/>
-<h2 style=color:Darkblue;>Menu Categories</h2> 
+<h2 style="color:darkblue;text-align:center;font-style:bold;">Menu Categories</h2> 
 <br/>
-<%= link_to "Show All Menu Items", "menu_items", class: "btn btn-success", style: "color:#fff;" %>
+
+  <%= link_to "Show All Menu Items", "menu_items", class: "Show btn btn-outline-primary btn-sm" %>
+
 <br/><br/>
 <% @menu_categories.each do |menu_category| %>
 
@@ -68,7 +70,7 @@
     </table>
     <br/>
 
-    <%= link_to "New Menu Item", new_menu_item_path(:menu_category_id => menu_category.id), class: "btn btn-success", style: "color:#fff;" %>
+    <%= link_to "New Menu Item", new_menu_item_path(:menu_category_id => menu_category.id), class: "btn btn-success btn-sm", style: "color:#fff;" %>
   </div>
 </div>
 
@@ -77,3 +79,5 @@
 <br>
 
 <%= link_to "New Menu Category", new_menu_category_path, class: "btn btn-success", style: "color:#fff;" %>
+<br/>
+<br/>

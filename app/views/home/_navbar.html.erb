@@ -11,9 +11,13 @@
           <% # <a class="nav-link active" aria-current="page" href="#">Browse Menu</a> %>
         </li>
         <li class="nav-item">
+          <%= link_to "Shopping Cart", cafe_cart_path, class: "nav-link ShoppingCart-Navbar" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "My Order Status", order_path, class: "nav-link" %>
           <% # <a class="nav-link" href="#">Link</a> %>
         </li>
+
         <% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
 
         <li class="nav-item">

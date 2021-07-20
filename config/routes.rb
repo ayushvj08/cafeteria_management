@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/" => "home#index"
   get "/cafe" => "cafe#index"
   get "/cafe/checkout" => "cafe#checkout"
+  get "/cafe/cart" => "cafe#cart"
 
   post "/cart/new" => "shopping_cart#create"
   post "/delete_cart_item" => "shopping_cart#destroy"

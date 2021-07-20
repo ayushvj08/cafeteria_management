@@ -8,4 +8,9 @@ class CafeController < ApplicationController
   def checkout
     @cart_items = ShoppingCart.where(user_id: current_user)
   end
+
+  def cart
+    @cart_items = ShoppingCart.where(user_id: current_user)
+    render "mobile_shopping_cart"
+  end
 end

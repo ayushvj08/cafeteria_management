@@ -36,6 +36,7 @@
   </head>
 
   <body>
+
       <% if session[:current_user_id] != nil %>
       <%= render partial: "home/navbar", current_user: @current_user %> 
       <% end %>
@@ -45,21 +46,17 @@
       <% end %>
 
       <% if flash[:msg] %>
-        <div class="alert alert-success" role="alert">
-          <%= flash[:msg] %>
-        </div>
+        <div class="alert alert-success" role="alert"><%= flash[:msg] %></div>
       <% end %>
 
       <% if flash[:error] %>
-        <div class="alert alert-danger" role="alert">
-          <%= flash[:error] %>
-        </div>
+        <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
       <% end %>
 
       <% # Sign-Out Button %>
       <% if @current_user %>
       <p></p>
-      <div class="container" style="display:flex;justify-content:space-between;">
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
         <div style="font-size:20px;">Welcome <%= @current_user.name %>!</div>
         <div><%= button_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-success" %> </div> 
         </div>

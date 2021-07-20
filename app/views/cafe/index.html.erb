@@ -1,7 +1,7 @@
 <div class="container" style="display:flex;">
 
-<section class="container-fluid" style="width:70%;">
-<h2 class="Menu">MENU</h2>
+<section class="container Menu-container">
+<h2 class="MenuHeading">MENU</h2>
 <% cart_items_id = @cart_items.all.map { |cart_item| cart_item.menu_item_id } %>
 
 <% @menu_categories.each do |menu_category| %>
@@ -22,7 +22,7 @@
             <div class="card" style="width: 18rem;display:inline;">
             <% # <img src="..." class="card-img-top" alt="..."> %>
             <div class="card-body">
-                <h5 style="display:flex; justify-content:space-between;" class="card-title MenuItem-Name"> <span><%= menu_item.name %></span><span> ₹<%= menu_item.price %></span> </h5>
+                <h5 style="display:flex; justify-content:space-between;align-items:center;" class="card-title MenuItem-Name"> <span><%= menu_item.name %></span><span> ₹<%= menu_item.price %></span> </h5>
                 <p class="card-text">  <i>Here's Some quick Menu Item Description.</i></p>
 
                 <% if cart_items_id.include? menu_item.id %>
@@ -56,9 +56,9 @@
 
 <div class="vertical-line"></div>
 
-<section id="#ShoppingCart" class="container-fluid" style="width:30%;">
+<section class="container ShoppingCart-container">
 <h4 class="CartHeading"> Shopping Cart </h4>
-  <hr>
+  <hr style="border-top:2px solid black;">
         <div class="container">
         <div style="display:flex;justify-content:space-between;font-weight:bold;">
         <p class="shoppingCart-ItemHeading"  >Item </p>
@@ -72,7 +72,7 @@
         <% cart_items.each do |cart_item| %>
         <% total = total + @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %>
         <section class="container">
-          <div style=display:flex;justify-content:space-between;>
+          <div style=display:flex;justify-content:space-between;align-items:center;>
             <p class="shoppingCart-Item" style="width:7rem;"><%= cart_item.last.first.menu_item_name %> </p>
 
             
@@ -108,7 +108,9 @@
         <p class="Total">Total</p>
         <p> ₹ <%= total %> </p>
         </div>
-        <hr>
+
+        <hr style="border-top:1.5px solid black;">
+
         <div style="text-align:center;">
           <%= link_to "Checkout", cafe_checkout_path, class: "btn btn-success", style: "color:#fff;" %>
         </div>

@@ -23,3 +23,9 @@
   font-weight: 100;
   display: inline;
 }
+.Show {
+  color: blue;
+}
+.Show:hover {
+  color: #fff;
+}

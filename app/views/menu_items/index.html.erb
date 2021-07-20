@@ -1,13 +1,13 @@
-
-<h2>Menu Items </h2>
-<div class="container-fluid">
+<div class=container>
+<h2 style="text-align:center;">Menu Items </h2>
+<div class="container-fluid" style="text-align:center;overflow:none;">
 <table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Menu category</th>
       <th>Name</th>
       <th>Price</th>
-      <th colspan="5"></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 
@@ -30,4 +30,6 @@
 
 <% # <%= link_to "New Menu Item", new_menu_item_path, class: "rails_link_to" %>   
 
-<%= link_to "BACK", menu_categories_path, class: "btn rails_link_to" %>
+<%= link_to "back", menu_categories_path, class: "btn btn-success btn-sm", style: "color:#fff;" %>
+</div>
+<br/>

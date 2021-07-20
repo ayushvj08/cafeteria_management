@@ -1,24 +1,25 @@
 
     <%= form_with(url: order_filter_path) do |form| %>
-    <section class=container style="display:flex;justify-content:space-between;text-align:center;align-items:center;" >
+    <section class="container OrderFilter-form " >
 
     <div class="container Form-section">  
         <%= form.label :from_date %>
             <br/>
-        <%= form.date_field :from_date, class: " Form-Input" %>
+        <%= form.date_field :from_date, class: "form-date Form-Input" %>
     </div>
-
+<br/>
     <div class="container Form-section">  
         <%= form.label :to_date %>
             <br/>
-        <%= form.date_field :to_date, class: " Form-Input" %>
+        <%= form.date_field :to_date, class: "form-date Form-Input" %>
     </div>
-
+<br/>
     <div class="container Form-section">  
         <%= form.label :order_status %>
             <br/>
-        <%= form.select :delivered_at, options_for_select(["pending delivery", "delivered", "View all orders"]), :value => [nil, Date.today], class: " Form-Input" %>
+        <%= form.select :delivered_at, options_for_select(["pending delivery", "delivered", "View all orders"]), :value => [nil, Date.today], class: "form-select Form-Input" %>
     </div>
+    <br/>
     <div class="container Form-section">
         <%= form.submit "submit", class: "btn btn-sm btn-outline-secondary Form-submit " %>
     </div>
