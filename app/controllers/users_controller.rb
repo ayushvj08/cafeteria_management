@@ -3,22 +3,12 @@ class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def index
-    if current_user
-      @users = User.all
-      render "index"
-    else
-      redirect_to "/"
-    end
+    @users = User.all
   end
 
   def new
     @new_user = User.new
     @new_user[:role] = params[:role]
-    if @current_user
-      render "new"
-    else
-      render "new"
-    end
   end
 
   def create
