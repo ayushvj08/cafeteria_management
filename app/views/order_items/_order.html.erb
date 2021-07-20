@@ -1,27 +1,35 @@
 <div class="container">
-
+  <h5 class="OrderItem-Heading" style="text-align:center;">
+    Invoice Details
+  </h5>
+  <hr style="border:1px solid black;">
 <% @order.each do |order| %>
 <% @order_items = OrderItem.where(order_id: order.id) %>
 
-<div class="container" style="display:flex;justify-content:space-between;"> 
-    <p style="font-size:1rem;">#Order_Id: <%= order.id %></p>
-    <p style="font-size:1rem;"> Order_date: <%= order.date %></p>
-    <p style="font-size:1rem;"> Order_status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p>
+  <br/>
+<div class="container" style="display:flex;justify-content:space-between;overflow:none;"> 
+   <button > <p>#Order_Id: <%= order.id %></p></button>
+   <button > <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
+   <button > <p> Date: <%= order.date %></p></button>
+   <button > <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
+
+  </div>
+  <br/>
+  <div class="container" style="text-align:right;"> 
     <% if (User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff") && order.delivered_at == nil %>
-    <p> <%= link_to "Mark As Delivered", order_update_path(order), method: :put, class: "btn btn-primary", style: "color:#fff;" %></p>
+    <p> <%= link_to "Mark As Delivered", order_update_path(order), method: :put, class: "btn btn-sm btn-primary", style: "color:#fff;" %></p>
     <% end %>
 </div>
 
-  <h3 class="OrderItem-Heading">
-    Order Items
-  </h3>
 
-      <div class="container" style="display:flex;justify-content:space-between;font-weight:bold;">
-        <p class="shoppingCart-ItemHeading"  >Item </p>
-        <p class="shoppingCart-ItemHeading QuantityHeading">Qty</p>
-        <p class="shoppingCart-ItemHeading">Price</p>
-      </div>
-        <hr>
+
+      <table class="table table-striped table-hover">
+      <thead>
+      <th><p>Item </p></th>
+      <th><p>Qty</p></th>
+      <th><p>Price</p></th>
+
+      <tbody>
         <% # Grouping cart items in a hash %>
         <% order_items = @order_items.group_by { |model| model = model.menu_item_name } %>
         
@@ -29,26 +37,25 @@
         <% order_items.each do |order_item| %>
         <% total = total + @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count * order_item.last.first.menu_item_price %>
         
-        <section class="container">
-          <div style=display:flex;justify-content:space-between;>
-            <p style="width:20%" class="shoppingCart-Item"><%= order_item.last.first.menu_item_name %> </p>
-            <p class="shoppingCart-Item"> <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count %> </p>
-            <p class="shoppingCart-Item"> ₹ <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count * order_item.last.first.menu_item_price %> </p>
-          </div>
-        </section>
 
+          <tr>
+          <td> <p style="width:30%;"  ><%= order_item.last.first.menu_item_name %> </p></td>
+          <td> <p > <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count %> </p></td>
+          <td> <p > ₹ <%= @order_items.where(menu_item_name: order_item.last.first.menu_item_name).count * order_item.last.first.menu_item_price %> </p> </td>
+      
+        </tr>
         <% end %>
 
-        <hr>
 
-        <div class="container" style="display:flex; justify-content:space-between;">
-        <p class="Total">Total</p>
-        <p> ₹ <%= total %> </p>
-        </div>
+        <tr>
+        <td><p class="Total">Total</p></td>
+        <td> </td>
+        <td><p> ₹ <%= total %> </p></td>
 
-        <hr>
+        </tr>
+        </tbody>
+        </table>
 
-</section>
 <% end %>
 
 </div>
