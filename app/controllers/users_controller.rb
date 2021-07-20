@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @current_user
       render "new"
     else
-      render "new", layout: false
+      render "new"
     end
   end
 

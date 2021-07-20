@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     if current_user
       redirect_to cafe_path
     else
-      render "index", layout: false
+      render "index"
     end
   end
 end
