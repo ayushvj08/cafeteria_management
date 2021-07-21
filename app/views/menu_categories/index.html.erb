@@ -5,9 +5,10 @@
   <%= link_to "Show All Menu Items", "menu_items", class: "Show btn btn-outline-primary btn-sm" %>
 
 <br/><br/>
-<% @menu_categories.each do |menu_category| %>
-<% navbar_id = 1 %>
 
+<% navbar_id = "a" %>
+
+<% @menu_categories.each do |menu_category| %>
 
 <nav class="navbar navbar-light bg-light">  
   <div class="container-fluid" >
@@ -76,7 +77,7 @@
   </div>
 </div>
 
-<% navbar_id = navbar_id + 1 %>
+<% navbar_id = navbar_id + "1" %>
 
 <% end %>
 
