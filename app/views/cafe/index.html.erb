@@ -5,16 +5,18 @@
 <% cart_items_id = @cart_items.all.map { |cart_item| cart_item.menu_item_id } %>
 
 <% @menu_categories.each do |menu_category| %>
+
+<% navbar_id = 1 %>
 <nav class="navbar navbar-light bg-light">
     <p class="MenuCategory-Name"><%= menu_category.name %> </p> <span> Items : <%= @menu_items.where(menu_category_id: menu_category.id).count %> <span>
 
     <button class="navbar-toggler ms-auto" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#<%= menu_category.name %>ToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            data-mdb-target="#<%= navbar_id %>" aria-controls="navbarToggleExternalContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
         </button>
 </nav>
-    <div class="collapse" id="<%= menu_category.name %>ToggleExternalContent">
+    <div class="collapse" id="<%= navbar_id %>">
         <div class="bg-light shadow-3 p-4">
 
         <% @menu_items.where(menu_category_id: menu_category.id).each do |menu_item| %>
@@ -51,6 +53,7 @@
         <% end %>
         </div>
     </div>
+    <% navbar_id = navbar_id + 1 %>
     <% end %>
 </section>
 

@@ -6,11 +6,13 @@
 
 <br/><br/>
 <% @menu_categories.each do |menu_category| %>
+<% navbar_id = 1 %>
+
 
 <nav class="navbar navbar-light bg-light">  
   <div class="container-fluid" >
     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#<%= menu_category.name %>ToggleExternalContent" aria-controls="navbarToggleExternalContent"
+      data-mdb-target="#<%= navbar_id %>" aria-controls="navbarToggleExternalContent"
       aria-expanded="false" aria-label="Toggle navigation">
 
       <i class="fas fa-bars"></i>
@@ -29,7 +31,7 @@
           
   </div>
 </nav>
-<div class="collapse" id="<%= menu_category.name %>ToggleExternalContent">
+<div class="collapse" id="<%= navbar_id %>">
   <div class="bg-light shadow-3 p-4">
     
   <table class="table table-striped table-hover">
@@ -73,6 +75,8 @@
     <%= link_to "New Menu Item", new_menu_item_path(:menu_category_id => menu_category.id), class: "btn btn-success btn-sm", style: "color:#fff;" %>
   </div>
 </div>
+
+<% navbar_id = navbar_id + 1 %>
 
 <% end %>
 
