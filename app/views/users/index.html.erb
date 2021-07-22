@@ -1,3 +1,5 @@
+<% if User.find(session[:current_user_id]).role == "admin" %>
+
 <section class="container" style="overflow:none;">
 <%= button_to "Back", cafe_path, method: :get, class: "btn btn-outline-primary btn-sm" %>
 <br/>
@@ -36,3 +38,4 @@
 <br/>
 
 </section>
+<% end %>

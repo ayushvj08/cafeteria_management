@@ -1,3 +1,5 @@
+<% if User.find(session[:current_user_id]).role == "admin" %>
+
 <br/>
 <div class="container">
 <p class="ShowMenuCategoryName-label">
@@ -18,3 +20,5 @@
 </div>
 <%= link_to "Edit", edit_user_path(@user), class: "btn rails_link_to" %> 
 <%= link_to "Back", users_path, class: "btn rails_link_to" %>
+
+<% end %>

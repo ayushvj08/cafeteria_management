@@ -16,12 +16,12 @@
    <br/>
     <div class="form-group Form-section"> 
         <%= form.label :email, class: "form-label" %> 
-        <%= form.email_field :email, :value => @new_user[:email], class: "form-control Form-Input" %>
+        <%= form.email_field :email, :value => @new_user[:email], class: "form-control Form-Input", required: "required" %>
     </div>
    <br/>
     <div class="form-group Form-section"> 
         <%= form.label :password, class: "form-label" %> 
-        <%= form.password_field :password, palceholder: :password, class: "form-control Form-Input" %>
+        <%= form.password_field :password, palceholder: :password, class: "form-control Form-Input", required: "required" %>
     </div>
 
     <div class="form-group Form-section">

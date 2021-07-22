@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :verify_authenticity_token
-  skip_before_action :ensure_user_logged_in
+  skip_before_action :ensure_user_logged_in, :only => [:new, :create]
 
   def index
     @users = User.all
@@ -53,7 +53,11 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     @user.role = params[:role]
-    if @user.save
+    if @user.save && @user.role == "customer"
+      flash[:msg] = "Password Updated successfully."
+      redirect_to cafe_path
+    elsif @user.save
+      flash[:msg] = "User has been Updated."
       redirect_to users_path
     else
       flash[:error] = @user.errors.full_messages.join(", ")
@@ -65,15 +69,5 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
-  end
-
-  def login
-    email = params[:email]
-    password = params[:password]
-    if User.find_by(email: email, password: password)
-      render plain: "true"
-    else
-      render plain: "false"
-    end
   end
 end
