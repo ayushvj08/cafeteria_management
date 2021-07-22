@@ -32,6 +32,10 @@
 
 <br/>
 
-<% # <%= link_to "Show", @user, class: "btn rails_link_to" %>  
-<%= link_to "Back", users_path, class: "btn rails_link_to" %>
+<% # <%= link_to "Show", @user, class: "btn rails_link_to" %> 
+<% if @new_user.role == "customer" %>
+ <%= link_to "Back", cafe_path, class: "btn btn-outline-primary btn-sm" %>
+<% else %>
+<%= link_to "Back", users_path, class: "btn btn-outline-primary btn-sm" %>
+<% end %>
 </div>

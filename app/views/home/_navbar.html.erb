@@ -18,6 +18,12 @@
           <% # <a class="nav-link" href="#">Link</a> %>
         </li>
 
+        <% if User.find(session[:current_user_id]).role == "customer" %>
+        <li class="nav-item">
+          <%= link_to "Change Password", edit_user_path(session[:current_user_id]), class: "nav-link" %>
+        </li>
+        <% end %>
+
         <% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
 
         <li class="nav-item">
