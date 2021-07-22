@@ -7,12 +7,14 @@
 <% @order_items = OrderItem.where(order_id: order.id) %>
 
   <br/>
-<div class="container" style="display:flex;justify-content:space-between;overflow:none;"> 
+ <div class="container OrderContainer" >
 
    <%= button_to "#Order_id: #{order.id}", order_show_path(:order => order.id), class: "btn btn-outline-primary btn-sm" %>
-   <button > <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
-   <button > <p> Date: <%= order.date %></p></button>
-   <button > <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
+
+
+   <button class="btn btn-sm" > <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
+   <button class="btn btn-sm" > <p> Date: <%= order.date %></p></button>
+   <button class="btn btn-sm" > <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
 
 
   </div>
