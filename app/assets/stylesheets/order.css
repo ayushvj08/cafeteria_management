@@ -5,15 +5,15 @@
     text-align: center;
     align-items: center;
   }
+  .OrderContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.OrderContainer {
-  display: flex;
-  justify-content: space-between;
-}
 @media screen and (max-width: 768px) {
   .OrderContainer {
-    display: grid;
-    justify-content: center;
+    /* display: grid; */
+    /* justify-content: center; */
   }
 }

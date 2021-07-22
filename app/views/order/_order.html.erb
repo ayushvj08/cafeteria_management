@@ -9,12 +9,12 @@
   <br/>
  <div class="container OrderContainer" >
 
-   <%= button_to "#Order_id: #{order.id}", order_show_path(:order => order.id), class: "btn btn-outline-primary btn-sm" %>
+   <%= button_to "#Order_id: #{order.id}", order_show_path(:order => order.id), class: "btn btn-outline-primary btn-sm", style: "display:inline;" %>
 
 
-   <button class="btn btn-sm" > <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
-   <button class="btn btn-sm" > <p> Date: <%= order.date %></p></button>
-   <button class="btn btn-sm" > <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
+   <button class="btn btn-sm"> <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
+   <button class="btn btn-sm"> <p> Date: <%= order.date %></p></button>
+   <button class="btn btn-sm"> <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
 
 
   </div>
