@@ -13,11 +13,11 @@
 
   <div class="form-group row field">
     <% form.label :name %>
-    <%= form.text_field :name, class: "form-control", placeholder: :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: :name, required: "required" %>
   </div>
   </div>
 
   <div class="actions">
-    <%= form.submit class: "btn" %>  
+    <%= form.submit class: "btn btn-success btn-sm" %>  
   </div>
 <% end %>

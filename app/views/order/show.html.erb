@@ -1,0 +1,11 @@
+<% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
+<div class=container style="display:flex;justify-content:space-between;">
+
+    <%= button_to "Back", cafe_path, class: "btn btn-outline-primary btn-sm", method: :get %>
+</div>
+<br/>
+
+<%= render partial: "order" %>
+<% else %>
+<%= render "404" %>
+<% end %>

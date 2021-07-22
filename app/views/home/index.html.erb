@@ -1,18 +1,15 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
 <div class=container style="text-align:center;margin-top:2%;">
 
     <h2 style=font-size:3rem; >Welcome to HotCafe.com</h2>
-    <i class="fas fa-mug-hot fa-5x "></i>
+    <i class="fad fa-mug-hot fa-7x "></i>
     <br/><br/>
 
 <h4 class="Home-authenticate">
-    If you are a new user Please <%= link_to "Sign-Up here", new_user_path(:role => "customer"), class: "btn btn-success", style: "color:#fff;" %>
+    If you are a new user Please <%= link_to "Sign-Up here", new_user_path(:role => "customer"), class: "btn btn-outline-success" %>
 </h4>
 <br/>
 
 <h4 class="Home-authenticate">
-    If you are an existing user Please <%= link_to "login here", sessions_path, class: "btn btn-success", style: "color:#fff;" %>
+    If you are an existing user Please <%= link_to "login here", sessions_path, class: "btn btn-outline-success" %>
 </h4>
 </div>

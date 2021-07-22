@@ -61,61 +61,59 @@
 
 <section class="container ShoppingCart-container">
 <h4 class="CartHeading"> Shopping Cart </h4>
-  <hr style="border-top:2px solid black;">
-        <div class="container">
-        <div style="display:flex;justify-content:space-between;font-weight:bold;">
-        <p class="shoppingCart-ItemHeading"  >Item </p>
-        <p class="shoppingCart-ItemHeading QuantityHeading">Qty</p>
-        <p class="shoppingCart-ItemHeading">Price</p>
-        </div></div>
+
+        <table  style="text-align:center;" class="table table-hover" >
+        <thead>
+        <tr>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        </tr>
+        </thead>
 
         <% # Grouping cart items in a hash %>
         <% cart_items = @cart_items.all.map.group_by { |model| model = model.menu_item_name } %>
         <% total = 0 %>
         <% cart_items.each do |cart_item| %>
         <% total = total + @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %>
-        <section class="container">
-          <div style=display:flex;justify-content:space-between;align-items:center;>
-            <p class="shoppingCart-Item" style="width:7rem;"><%= cart_item.last.first.menu_item_name %> </p>
+    
+          <tbody>
+          <tr>
+            <td><p class="shoppingCart-Item" style="width:7rem;"><%= cart_item.last.first.menu_item_name %> </p></td>
 
-            
-            <% if cart_items.include? cart_item.last.first.menu_item_name %>
+            <td>
+
             <div class="plus-minus-shoppingcart">
                 <%= button_to "+", { :controller => "shopping_cart", :action => "create", :menu_category_name => cart_item.last.first.menu_category_name,
                                      :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
-                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success" %>
 
                 <% # Group & count %>
 
                 <p class="shoppingCart-Item" style="padding:0 0.8rem;"> <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count %> </p>                
                 <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :id => cart_item.last.first.id, :menu_category_name => cart_item.last.first.menu_category_name,
                                      :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
-                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success" %>
                 
-              </div>
-              <p class="shoppingCart-Item"> ₹ <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %> </p>
+              </div></td>
+              <td><p class="shoppingCart-Item"> ₹ <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %> </p></td>
 
-            <% else %>
             
-            <p class="shoppingCart-Item"> <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count %> </p>
-            <p class="shoppingCart-Item"> ₹ <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %> </p>
-            <% end %>
-            
+            </tr>
 
-          </div>
-          <br/>
-        </section>
+          
         <% end %>
-        <hr>
-        <div class="container" style="display:flex; justify-content:space-between;">
-        <p class="Total">Total</p>
-        <p> ₹ <%= total %> </p>
-        </div>
-
-        <hr style="border-top:1.5px solid black;">
+        
+        <tr> 
+        <td><p class="shoppingCart-Item">Total</p></td>
+        <td></td>
+        <td><p class="shoppingCart-Item"> ₹ <%= total %> </p></td>
+        </tr>
+        </tbody>
+        </table>
 
         <div style="text-align:center;">
-          <%= link_to "Checkout", cafe_checkout_path, class: "btn btn-success", style: "color:#fff;" %>
+          <%= link_to "Proceed to Checkout", cafe_checkout_path, class: "btn btn-success btn-sm ", style: "color:#fff;" %>
         </div>
 </section>
 </div>

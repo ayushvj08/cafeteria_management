@@ -16,7 +16,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
 <link
   href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
   rel="stylesheet"
@@ -38,27 +38,33 @@
   <body>
 
       <% if session[:current_user_id] != nil %>
-      <%= render partial: "home/navbar", current_user: @current_user %> 
+      <%= render partial: "home/navbar" %> 
       <% end %>
 
       <% if notice %>
-        <div class="alert alert-success" role="alert"><%= notice %></div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert"><%= notice %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
       <% end %>
 
       <% if flash[:msg] %>
-        <div class="alert alert-success" role="alert"><%= flash[:msg] %></div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert"><%= flash[:msg] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
       <% end %>
 
       <% if flash[:error] %>
-        <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert"><%= flash[:error] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
       <% end %>
 
       <% # Sign-Out Button %>
-      <% if @current_user %>
+      <% if session[:current_user_id] != nil %>
       <p></p>
       <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
-        <div style="font-size:20px;">Welcome <%= @current_user.name %>!</div>
-        <div><%= button_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-success" %> </div> 
+        <div style="font-size:20px;">Welcome <%= User.find(session[:current_user_id]).name %>!</div>
+        <div><%= button_to "Sign-out", destroy_session_path, method: "delete", class: "btn btn-outline-primary btn-sm" %> </div> 
         </div>
         <br/>
       <% end %>

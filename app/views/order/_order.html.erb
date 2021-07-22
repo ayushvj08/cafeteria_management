@@ -8,10 +8,12 @@
 
   <br/>
 <div class="container" style="display:flex;justify-content:space-between;overflow:none;"> 
-   <button > <p>#Order_Id: <%= order.id %></p></button>
+
+   <%= button_to "#Order_id: #{order.id}", order_show_path(:order => order.id), class: "btn btn-outline-primary btn-sm" %>
    <button > <p> #Customer: <%= User.find(order.user_id).name %> </p></button>
    <button > <p> Date: <%= order.date %></p></button>
    <button > <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
+
 
   </div>
   <br/>

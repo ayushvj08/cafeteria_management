@@ -10,13 +10,14 @@
   color: rgb(0, 3, 158);
 }
 .CartHeading {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-family: Montserrat;
   font-weight: 700;
   text-align: center;
   margin-top: 2%;
   padding: 2% 0;
-  color: rgb(20, 145, 26);
+  color: darkblue;
+  /* color: rgb(20, 145, 26); */
 }
 .vertical-line {
   border-right: 2px solid;

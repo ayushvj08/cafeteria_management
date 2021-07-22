@@ -8,12 +8,12 @@
 
     <div class="form-group Form-section">  
         <% # <p class="FormInput-label">Email <span>*</span> </p> %>
-        <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input" %>
+        <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input", autofocus: "autofocus", required: "required" %>
     </div>
    <br/>
     <div class="form-group Form-section">  
         <% # <p class="FormInput-label">Password <span>*</span> </p> %>
-        <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input" %>
+        <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input", required: "required" %>
     </div>
     <div class="form-group Form-section">
         <%= form.submit "login", class: "Form-submit btn btn-success", style: "margin-top:20px;color:#fff;" %>

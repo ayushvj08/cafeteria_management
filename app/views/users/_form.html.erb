@@ -7,15 +7,15 @@
 
     <br/>
     <div class="form-group Form-section">  
-        <%= form.text_field :name, placeholder: :name, class: "form-control Form-Input" %>
+        <%= form.text_field :name, placeholder: :name, class: "form-control Form-Input", autofocus: "autofocus" %>
     </div>
    <br/>
     <div class="form-group Form-section">  
-        <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input" %>
+        <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input", required: "required" %>
     </div>
    <br/>
     <div class="form-group Form-section">  
-        <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input" %>
+        <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input", required: "required" %>
     </div>
 
     <div class="form-group Form-section">

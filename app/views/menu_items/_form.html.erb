@@ -18,7 +18,7 @@
 
   <div class="field form-group">
     <% form.label :name %>
-    <%= form.text_field :name, class: "form-control", placeholder: :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: :name, required: "required" %>
   </div>
 
   <div class="field form-group">
@@ -28,7 +28,7 @@
 
   <div class="field form-group">
     <% form.label :price %>
-    <%= form.text_field :price, class: "form-control", placeholder: :price %>
+    <%= form.number_field :price, class: "form-control", placeholder: :price, required: "required" %>
   </div>
 
   <div class="actions">

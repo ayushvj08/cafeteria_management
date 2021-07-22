@@ -1,7 +1,10 @@
 <section class="container" style="overflow:none;">
-
-<h3 style=text-align:center;>Users</h3>
-<table class="table table-striped table-hover">
+<%= button_to "Back", cafe_path, method: :get, class: "btn btn-outline-primary btn-sm" %>
+<br/>
+<h4 style=text-align:center;>Users</h4>
+  <hr style="border:1px solid black;">
+  <br/>
+<table class="table table-striped table-hover" style="text-align:center;">
 <thead>
 <th>Name</th>
 <th>Email</th>
@@ -31,6 +34,5 @@
 </tbody>
 </table>
 <br/>
-<%= link_to "Back", cafe_path, class: "btn btn-success", style: "color:#fff;" %>
 
 </section>

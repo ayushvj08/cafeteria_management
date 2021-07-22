@@ -12,12 +12,16 @@ Rails.application.routes.draw do
   post "/cart/new" => "shopping_cart#create"
   post "/delete_cart_item" => "shopping_cart#destroy"
 
-  get "/order" => "order_items#index"
+  get "/order" => "order#index"
+
+  get "/order/view" => "order#show"
+  get "/order/filter" => "order#filter"
+  post "/order/filter" => "order#filtered_orders"
+  put "/order/update" => "order#update"
+
   post "/order/items" => "order_items#create"
-  get "/order/view" => "order_items#show"
-  put "/order/update" => "order_items#update"
-  get "/order/filter" => "order_items#filter"
-  post "/order/filter" => "order_items#filter_order"
+  post "order/show" => "order_items#show"
+  get "order/show" => "order_items#show"
 
   get "/signin", to: "sessions#new", as: :new_sessions
   post "/signin", to: "sessions#create", as: :sessions

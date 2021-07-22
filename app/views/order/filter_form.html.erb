@@ -1,4 +1,4 @@
-
+<% if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff" %>
     <%= form_with(url: order_filter_path) do |form| %>
     <section class="container OrderFilter-form " >
 
@@ -26,5 +26,7 @@
 
     </section>
     <% end %>
-
-
+    
+<% else %>
+<%= render "404" %>
+<% end %>

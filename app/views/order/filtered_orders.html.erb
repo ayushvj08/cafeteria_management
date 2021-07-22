@@ -1,5 +1,6 @@
+<% if User.find(session[:current_user_id]).role == "admin" %>
 <div class=container style="display:flex;justify-content:space-between;">
-    <%= link_to "Back", cafe_path, class: "btn btn-success", style: "color:#fff;" %>
+    <%= button_to "Back", order_filter_path, class: "btn btn-outline-primary btn-sm", method: :get %>
 </div>
 <br/>
 
@@ -13,7 +14,10 @@
 <% end %>
 
 <div class=container style="text-align:center;">
-<h5 style="color:orange;">Sale for the given time frame & Order Status is ₹ <%= total %></h5></div>
+<h5 style="color:blue;">Sale for the given time frame & Order Status is ₹ <%= total %></h5></div>
 <hr/>
 
 <%= render partial: "order" %>
+<% else %>
+<%= render "404" %>
+<% end %>
