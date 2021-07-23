@@ -48,20 +48,26 @@ class UsersController < ApplicationController
 
   def update
     # @new_user.save!
-    @user = User.find(params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-    @user.password = params[:password]
-    @user.role = params[:role]
-    if @user.save && @user.role == "customer"
-      flash[:msg] = "Password Updated successfully."
-      redirect_to cafe_path
-    elsif @user.save
-      flash[:msg] = "User has been Updated."
+    # Root
+    if params[:email] == "admin@email.com"
+      flash[:error] == "This is root admin! you can't change his login credentials"
       redirect_to users_path
     else
-      flash[:error] = @user.errors.full_messages.join(", ")
-      redirect_to users_path
+      @user = User.find(params[:id])
+      @user.name = params[:name]
+      @user.email = params[:email]
+      @user.password = params[:password]
+      @user.role = params[:role]
+      if @user.save && @user.role == "customer"
+        flash[:msg] = "Password Updated successfully."
+        redirect_to cafe_path
+      elsif @user.save
+        flash[:msg] = "User has been Updated."
+        redirect_to users_path
+      else
+        flash[:error] = @user.errors.full_messages.join(", ")
+        redirect_to users_path
+      end
     end
   end
 
