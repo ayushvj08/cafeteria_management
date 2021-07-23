@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
       )
     end
 
-    flash[:msg] = "Order Placed! Check status of your order by visiting My order status."
+    flash[:msg] = "Order Placed! Check status of your order by visiting My orders."
     ShoppingCart.where(user_id: current_user).destroy_all
     @cart_items = nil
     redirect_to cafe_path

@@ -7,7 +7,12 @@ class OrderController < ApplicationController
   end
 
   def show
-    @order = Order.all
+    if User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing clerk"
+      @order = Order.all
+      render "show"
+    else
+      redirect_to order_path
+    end
   end
 
   def update
