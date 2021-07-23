@@ -1,4 +1,15 @@
-# Hello!🖐 Welome to [HotCafe.com](https://hot-cafe.herokuapp.com/)
+# Hello!🖐 & Welome to [HotCafe](https://hot-cafe.herokuapp.com/)
+
+### For full eperience of the platform visit *_[HotCafe.com](https://hot-cafe.herokuapp.com/)_* and login via *admin* role
+
+| Name | Email | Password | Role |
+|----  |  -----|  ------- |----  |
+| admin | admin2@email.com | admin | admin |
+| customer | customer1@email.com | customer | customer |
+| Billing Staff | billing1@email.com | bill | billing staff |
+
+
+
 
 ![Screenshot (245)](https://user-images.githubusercontent.com/56788911/126221698-1b4b4a4f-3e64-47b4-916c-c9211c31dcff.png)
 
