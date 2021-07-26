@@ -1,6 +1,6 @@
 # Hello!🖐 & Welome to [HotCafe](https://hot-cafe.herokuapp.com/)
 
-### For full eperience of the platform visit *_[HotCafe.com](https://hot-cafe.herokuapp.com/)_* and login via *admin* role
+### To get a complete eperience of the platform visit *_[HotCafe.com](https://hot-cafe.herokuapp.com/)_* and login via *admin* role
 
 | Name | Email | Password | Role |
 |----  |  -----|  ------- |----  |
