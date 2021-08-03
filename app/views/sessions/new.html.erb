@@ -10,7 +10,10 @@
         <% # <p class="FormInput-label">Email <span>*</span> </p> %>
         <%= form.email_field :email, placeholder: :email, class: "form-control Form-Input", autofocus: "autofocus", required: "required" %>
     </div>
-   <br/>
+   
+    <div class="form-group forgotPassword-container" style="text-align:right;">  
+        <%= link_to "forgot password?", reset_password_path, class: "forgotPassword" %>
+    </div>
     <div class="form-group Form-section">  
         <% # <p class="FormInput-label">Password <span>*</span> </p> %>
         <%= form.password_field :password, placeholder: :password, class: "form-control Form-Input", required: "required" %>

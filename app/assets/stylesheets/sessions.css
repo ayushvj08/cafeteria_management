@@ -1,0 +1,22 @@
+.forgotPassword {
+  position: relative;
+  left: 0;
+  right: 0;
+  color: rgb(1, 1, 212) !important;
+  text-decoration: none;
+  padding: 1% 0;
+}
+.forgotPassword:hover {
+  color: red;
+  background-color: #fff;
+}
+.forgotPassword-container {
+  margin: 0.5% 0;
+  padding: 0.4% 0;
+}
+
+@media screen and (max-width: 796px) {
+  .forgotPassword-container {
+    padding: 3% 0;
+  }
+}

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :verify_authenticity_token
-  skip_before_action :ensure_user_logged_in, :only => [:new, :create]
+  skip_before_action :ensure_user_logged_in, :only => [:new, :create, :reset_password_form, :reset_password]
 
   def index
     @users = User.all
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
     if @new_user.save
       flash[:msg] = "Account successfully created! Please login to continue."
-      redirect_to "/"
+      redirect_to new_sessions_path
     else
       flash[:error] = @new_user.errors.full_messages.join(", ")
       redirect_to new_user_path
@@ -75,5 +75,27 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
+  end
+
+  def reset_password_form
+    if session[:current_user_id]
+      redirect_to "/"
+    else
+      @user = User.find_by(email: params[:email])
+    end
+  end
+
+  def reset_password
+    @user = User.find_by(email: params[:email])
+    if params[:password] == params[:confirm_password]
+      @user.password = params[:password]
+      if @user.save
+        flash[:msg] = "Password Updated Successfully. Log-in to continue!"
+        redirect_to new_sessions_path
+      end
+    else
+      flash[:error] = "Both Passwords don't match. Make sure to type them correctly"
+      redirect_to "/"
+    end
   end
 end

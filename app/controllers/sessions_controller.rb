@@ -6,6 +6,21 @@ class SessionsController < ApplicationController
     render "new"
   end
 
+  def forgot_password
+  end
+
+  def reset_password
+    @user_email = params[:email]
+    if !User.find_by(email: @user_email)
+      flash[:error] = "This isn't a valid email! Please consider Signing-up Instead."
+      redirect_to "/"
+    else
+      UserMailer.with(email: @user_email).reset_password_email.deliver_now
+      flash[:msg] = "Password Reset email sent."
+      redirect_to "/"
+    end
+  end
+
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :menu_categories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
+  get "/user/reset_password" => "users#reset_password_form"
+  post "/user/reset_password" => "users#reset_password"
 
   get "/" => "home#index"
   get "/cafe" => "cafe#index"
