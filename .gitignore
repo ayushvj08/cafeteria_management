@@ -29,6 +29,9 @@
 /public/assets
 .byebug_history
 
+# Ignore smtp credentials
+/config/local_env.yml
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
