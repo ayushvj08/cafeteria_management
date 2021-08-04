@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :verify_authenticity_token
-  skip_before_action :ensure_user_logged_in, :only => [:new, :create, :reset_password_form, :reset_password]
+  # before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, :ensure_user_logged_in, :only => [:new, :create, :reset_password_form, :reset_password]
 
   def index
     @users = User.all
@@ -80,13 +80,22 @@ class UsersController < ApplicationController
   def reset_password_form
     if session[:current_user_id]
       redirect_to "/"
+    elsif !params[:encrypt]
+      flash[:error] = "Authentication is Missing or Invalid"
+      redirect_to "/"
     else
       @user = User.find_by(email: params[:email])
+      @encrypt = params[:encrypt]
     end
   end
 
   def reset_password
     @user = User.find_by(email: params[:email])
+    @encrypt = params[:encrypt]
+    if !@encrypt
+      flash[:error] = "Missing OR Invalid Authentication"
+      return redirect_to "/"
+    end
     if params[:password] == params[:confirm_password]
       @user.password = params[:password]
       if @user.save
