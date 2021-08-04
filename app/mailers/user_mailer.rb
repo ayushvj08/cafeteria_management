@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
 
     mail(to: email_address_with_name(@user.email, @user.name),
          from: email_address_with_name("support@hot-cafe.com", "Hot Cafe"),
+         reply_to: "ayush.vijayant@gmail.com",
          subject: "Password Reset link for Hot cafe")
   end
 end
