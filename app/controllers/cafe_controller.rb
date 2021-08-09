@@ -1,4 +1,6 @@
 class CafeController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def index
     @menu_categories = MenuCategory.all
     @menu_items = MenuItem.all
