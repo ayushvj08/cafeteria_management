@@ -1,6 +1,8 @@
 <img class='bg-img'>
 <main class='Has-bg-img'><section class="container UsersNew" >
 
+<h3 class="NewUsers-title" style=font-family:Poppins;font-weight:800;text-align:center;margin-top:30px;>Welcome new User!</h3>
+
 <%= form_with(url: users_path) do |form| %>
     <div class="form-group Form-section" style="display:none;">  
         <%= form.text_field :role, :value => @new_user[:role], class: "form-control Form-Input" %>

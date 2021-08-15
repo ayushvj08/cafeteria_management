@@ -26,7 +26,7 @@
   background-color: transparent;
 }
 .linkto {
-  background: none;
+  /* background: none; */
   color: blue;
   text-decoration: none;
 }
@@ -51,7 +51,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 0;
+  z-index: -1;
   display: block;
   width: 100%;
   height: 100%;
@@ -59,12 +59,12 @@
   background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
   background-repeat: repeat-y;
   background-size: cover;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
-  opacity: 50%;
+  -webkit-filter: blur(0.1px);
+  -moz-filter: blur(0.1px);
+  -o-filter: blur(0.1px);
+  -ms-filter: blur(0.1px);
+  filter: blur(0.1px);
+  opacity: 65%;
 }
 .Has-bg-img {
   position: fixed;
@@ -111,8 +111,14 @@ footer {
   color: red;
 }
 .footer-link {
-  color: white;
-}
-.footer-link:hover {
+  background: none;
   color: cyan;
+}
+a {
+  background: none;
+  text-decoration: none;
+}
+a:hover,
+.footer-link:hover {
+  background: none;
 }

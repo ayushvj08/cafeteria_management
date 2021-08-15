@@ -9,6 +9,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <li class="nav-item"> <a class="nav-link"> <i style='color:cyan;'> Hello <%= session[:current_user_id] == nil ? "Guest" : User.find(session[:current_user_id]).name %> </i> </a> </li>
+
         <li class="nav-item">
           <%= link_to "Menu", cafe_path, class: " nav-link active" %>
           <% # <a class="nav-link active" aria-current="page" href="#">Browse Menu</a> %>
@@ -69,10 +72,14 @@
         
       </ul>
 
-      <form class="d-flex">
+      <% # form tag %>
+      <main class="d-flex">
 
-         <% # <button class="btn btn-outline-success"  type="submit">Sign-Out</button> %>
-      </form>
+         <% # <button class="btn btn-outline-success"  type="submit"> Sign-Out </button> %>
+        <% if session[:current_user_id] != nil %>
+         <%= button_to "Sign Out", "/signout", method: :delete, type: "submit", class: "btn btn-sm btn-outline-primary" %>
+        <% end %>
+      </main>
     </div>
 
 
