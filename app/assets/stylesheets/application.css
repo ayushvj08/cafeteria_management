@@ -21,3 +21,66 @@
   color: green;
   background-color: transparent;
 }
+.linkto {
+  background: none;
+  color: blue;
+  text-decoration: none;
+}
+.linkto:hover {
+  color: blue;
+  background: none;
+}
+.UsersNew {
+  max-width: 500px;
+  text-align: center;
+}
+.Form-submit {
+  text-transform: none;
+}
+.signup {
+  color: black;
+  font-size: 1rem;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  opacity: 50%;
+}
+.Has-bg-img {
+  /* color: rgb(29, 51, 20); */
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.Design-Menu {
+  max-width: 1200px;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+.navigation {
+  position: relative;
+  z-index: 20;
+}
+.Home-authenticate {
+  font-family: Poppins;
+  font-weight: 800;
+}

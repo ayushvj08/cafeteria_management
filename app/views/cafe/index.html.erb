@@ -7,7 +7,7 @@
 <% @menu_categories.each do |menu_category| %>
 
 
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light">
     <p class="MenuCategory-Name"><%= menu_category.name %> </p> <span> Items : <%= @menu_items.where(menu_category_id: menu_category.id).count %> <span>
 
     <button class="navbar-toggler ms-auto" type="button" data-mdb-toggle="collapse"
@@ -17,7 +17,7 @@
         </button>
 </nav>
     <div class="collapse" id="<%= @navbar_id %>">
-        <div class="bg-light shadow-3 p-4">
+        <div class="shadow-3 p-4">
 
         <% @menu_items.where(menu_category_id: menu_category.id).each do |menu_item| %>
  
@@ -117,3 +117,5 @@
         </div>
 </section>
 </div>
+
+<br/><br/><br/>

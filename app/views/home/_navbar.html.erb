@@ -1,3 +1,5 @@
+<div class='navigation'>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <%= link_to "Hot@Cafe", "/", class: "btn btn-outline-primary navbar-brand" %>
@@ -11,8 +13,8 @@
           <%= link_to "Menu", cafe_path, class: " nav-link active" %>
           <% # <a class="nav-link active" aria-current="page" href="#">Browse Menu</a> %>
         </li>
-                  <% if session[:current_user_id] != nil %>
-
+        
+        <% if session[:current_user_id] != nil %>
 
         <li class="nav-item">
           <%= link_to "Shopping Cart", cafe_cart_path, class: "nav-link ShoppingCart-Navbar" %>
@@ -76,3 +78,5 @@
 
   </div>
 </nav>
+
+</div>

@@ -8,15 +8,9 @@
 }
 .forgotPassword:hover {
   color: red;
-  background-color: #fff;
+  background: transparent;
 }
 .forgotPassword-container {
   margin: 0.5% 0;
-  padding: 0.4% 0;
-}
-
-@media screen and (max-width: 796px) {
-  .forgotPassword-container {
-    padding: 3% 0;
-  }
+  padding: 2% 0;
 }

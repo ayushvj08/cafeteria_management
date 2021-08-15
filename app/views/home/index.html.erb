@@ -1,15 +1,22 @@
+<img class='bg-img'>
+<main class='Has-bg-img'>
 <div class=container style="text-align:center;margin-top:2%;">
 
-    <h2 style=font-size:3rem; >Welcome to HotCafe.com</h2>
+    <h2 style=font-size:375%; > HOT@CAFE </h2>
+    <p style="font-family:poppins;font-weight:400;font-size:1rem"><i>Delicious food now at your fingertips!</i></p>
+
     <i class="fad fa-mug-hot fa-7x "></i>
     <br/><br/>
-
-<h4 class="Home-authenticate">
-    If you are a new user Please <%= link_to "Sign-Up here", new_user_path(:role => "customer"), class: "btn btn-outline-success" %>
-</h4>
+<%= link_to "Browse Menu", cafe_path, class: "btn btn-secondary btn-lg linkto", style: "text-transform:none;color:#fff;font-family:poppins;font-weight:400;" %>
 <br/>
+<br/>
+<p style="font-family:poppins;font-weight:400;font-size:1rem">OR</p>
 
-<h4 class="Home-authenticate">
-    If you are an existing user Please <%= link_to "login here", sessions_path, class: "btn btn-outline-success" %>
-</h4>
+<h6 class="Home-authenticate">
+    <%= link_to "Login", sessions_path, class: "btn btn-secondary linkto", style: "text-transform:none;color:#fff;text-decoration:none;" %>
+-
+    <%= link_to "SignUp", new_user_path(:role => "customer"), class: "btn btn-secondary linkto", style: "text-transform:none;color:#fff;text-decoration:none;" %>
+</h6>
 </div>
+
+</main>
