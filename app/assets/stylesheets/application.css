@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.btn {
+  text-transform: none;
+}
 .rails_link_to {
   color: green;
   text-decoration: none;
@@ -63,7 +67,6 @@
   opacity: 50%;
 }
 .Has-bg-img {
-  /* color: rgb(29, 51, 20); */
   position: fixed;
   left: 0;
   right: 0;
@@ -73,14 +76,43 @@
 }
 .Design-Menu {
   max-width: 1200px;
-  /* text-align: center; */
   margin: 0 auto;
 }
 .navigation {
   position: relative;
+  top: 0;
   z-index: 20;
 }
 .Home-authenticate {
   font-family: Poppins;
   font-weight: 800;
+  font-style: italic;
+}
+body {
+  padding-bottom: 7.5rem;
+}
+footer {
+  padding: 2%;
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: rgba(26, 26, 26, 0.904);
+}
+.footer {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 0.9rem;
+  font-weight: 200;
+  align-items: center;
+}
+.fa-heart {
+  color: red;
+}
+.footer-link {
+  color: white;
+}
+.footer-link:hover {
+  color: cyan;
 }

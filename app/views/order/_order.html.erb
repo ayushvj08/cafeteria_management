@@ -13,7 +13,7 @@
 
 
    <button class="btn btn-sm"> <p> #Customer: <%= User.where(id: order.user_id).pluck(:name).first %> </p></button>
-   <button class="btn btn-sm"> <p> Date: <%= order.date %></p></button>
+   <button class="btn btn-sm"> <p> Ordered at: <%= order.date %></p></button>
    <button class="btn btn-sm"> <p> Status: <%= order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
 
 

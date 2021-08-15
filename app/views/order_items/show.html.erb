@@ -1,6 +1,6 @@
 <div class=container style="display:flex;justify-content:space-between;">
 
-    <%= button_to "Back", order_path, class: "btn btn-outline-primary btn-sm", method: :get %>
+    <%= button_to "Back", order_view_path, class: "btn btn-outline-primary btn-sm", method: :get %>
 </div>
 
 <br/>
@@ -9,12 +9,21 @@
     <hr style="border:1px solid black;">
     <br/>
 
-<div class="container OrderContainer" > 
+  <div class="container OrderContainer"> 
 
    <button class="btn btn-sm" > <p> #Customer: <%= User.find(@order.user_id).name %> </p></button>
-   <button class="btn btn-sm" > <p> Date: <%= @order.date %></p></button>
-   <button class="btn btn-sm" > <p> Status: <%= @order.delivered_at == nil ? "pending delivery" : "delivered" %> </p></button>
+   <% if @order.delivered_at == nil %>
 
+   <button class="btn btn-sm" > <p> Ordered at : <%= @order.created_at %> </p></button>
+   <button class="btn btn-sm" > <p> Status: Pending Delivery </p></button>
+
+   <% else %>
+   
+   <button class="btn btn-sm" > <p> Ordered at : <%= @order.created_at %> </p></button>
+   <button class="btn btn-sm" > <p> Status: Delivered </p></button>
+   <button class="btn btn-sm" > <p> Delivered at : <%= @order.updated_at %> </p></button>
+
+    <% end %>
 
   </div>
   <br/>
