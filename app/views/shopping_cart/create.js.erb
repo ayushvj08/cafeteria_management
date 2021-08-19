@@ -1,6 +1,15 @@
-<article>
-<br/>
-<div id = dom class="container" style="display:flex;">
+var name = '<%= @cart_item.menu_item_name %>'
+console.log(name + ' got added.');
+<% # document.getElementById('dom').innerHTML = %>
+
+document.querySelector('article') !== null ? 
+
+document.querySelector('article').innerHTML =
+`      <header class="alert alert-success alert-dismissible fade show" role="alert"><%= "Added a New Item to Cart." %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </header>
+
+<div class="container" style="display:flex;">
 
 <section class="container Menu-container">
 <h2 class="MenuHeading">MENU</h2>
@@ -18,7 +27,7 @@
             <i class="fas fa-bars"></i>
         </button>
 </nav>
-    <div class="collapse" id="<%= @navbar_id %>">
+    <div class="show collapse" id="<%= @navbar_id %>">
         <div class="shadow-3 p-4">
 
         <% @menu_items.where(menu_category_id: menu_category.id).each do |menu_item| %>
@@ -120,6 +129,72 @@
 </section>
 </div>
 
-<br/><br/><br/>
+<br/><br/><br/>`
 
-</article>
+:
+
+document.querySelector('section').innerHTML = 
+`      <header class="alert alert-success alert-dismissible fade show" role="alert"><%= "Added a New Item to Cart." %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </header>
+
+<section class=container>
+<h4 class="CartHeading"> Shopping Cart </h4>
+
+        <table style="text-align:center;" class="table table-striped table-hover">
+        <thead>
+        <tr>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+        </tr>
+        </thead>
+
+        <% # Grouping cart items in a hash %>
+        <% cart_items = @cart_items.all.map.group_by { |model| model = model.menu_item_name } %>
+        <% total = 0 %>
+        <% cart_items.each do |cart_item| %>
+        <% total = total + @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %>
+        
+          <tbody>
+          <tr>
+            <td><p class="shoppingCart-Item"><%= cart_item.last.first.menu_item_name %> </p></td>
+
+            <td>
+            <div style="display:flex;align-items:center;justify-content:center;">
+                <%= button_to "+", { :controller => "shopping_cart", :action => "create", :menu_category_name => cart_item.last.first.menu_category_name,
+                                     :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, remote: true, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+
+                <% # Group & count %>
+
+                <p class="shoppingCart-Item" style="padding:0 0.8rem;"> <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count %> </p>                
+                <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :id => cart_item.last.first.id, :menu_category_name => cart_item.last.first.menu_category_name,
+                                     :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, remote: true, method: :delete, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+                
+              </div>
+              </td>
+
+              <td><p class="shoppingCart-Item"> ₹ <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count * cart_item.last.first.menu_item_price %> </p></td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td><p class="shoppingCart-Item">Total</p></td>
+          <td></td>
+          <td><p class="shoppingCart-Item"> ₹ <%= total %> </p></td>
+        </tr>
+        </tbody>
+        </table>
+
+        <div style="text-align:center;">
+          <%= link_to "Proceed to Checkout", cafe_checkout_path, class: "btn btn-success btn-sm", style: "color:#fff;" %>
+        </div>
+        <br/>
+            <%= link_to "Back", cafe_path, class: "btn btn-outline-primary btn-sm" %>
+        
+</section>
+<br/>
+
+`

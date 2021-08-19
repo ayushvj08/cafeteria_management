@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/cafe/cart" => "cafe#cart"
 
   post "/cart/new" => "shopping_cart#create"
-  post "/delete_cart_item" => "shopping_cart#destroy"
+  delete "/delete_cart_item" => "shopping_cart#destroy"
 
   get "/order" => "order#index"
 

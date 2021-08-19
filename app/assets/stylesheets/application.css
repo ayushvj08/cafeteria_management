@@ -64,7 +64,7 @@
   -o-filter: blur(0.1px);
   -ms-filter: blur(0.1px);
   filter: blur(0.1px);
-  opacity: 65%;
+  opacity: 60%;
 }
 .Has-bg-img {
   position: fixed;
@@ -92,15 +92,16 @@ body {
   padding-bottom: 7.5rem;
 }
 footer {
-  padding: 2%;
+  padding: 1.1% 0 0.7% 0;
   position: fixed;
   z-index: 9999;
   bottom: 0;
   text-align: center;
   width: 100%;
-  background-color: rgba(26, 26, 26, 0.904);
+  background-color: rgba(14, 14, 14, 0.945);
 }
 .footer {
+  margin-bottom: 0.8%;
   color: #fff;
   font-family: Poppins;
   font-size: 0.9rem;

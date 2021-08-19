@@ -24,14 +24,14 @@
             <div style="display:flex;align-items:center;justify-content:center;">
                 <%= button_to "+", { :controller => "shopping_cart", :action => "create", :menu_category_name => cart_item.last.first.menu_category_name,
                                      :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
-                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, remote: true, class: "btn plus-minus btn-success", style: "color: #fff;" %>
 
                 <% # Group & count %>
 
                 <p class="shoppingCart-Item" style="padding:0 0.8rem;"> <%= @cart_items.where(menu_item_name: cart_item.last.first.menu_item_name).count %> </p>                
                 <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :id => cart_item.last.first.id, :menu_category_name => cart_item.last.first.menu_category_name,
                                      :menu_item_id => cart_item.last.first.menu_item_id, :menu_item_name => cart_item.last.first.menu_item_name,
-                                     :menu_item_price => cart_item.last.first.menu_item_price }, class: "btn plus-minus btn-success", style: "color: #fff;" %>
+                                     :menu_item_price => cart_item.last.first.menu_item_price }, remote: true, method: :delete, class: "btn plus-minus btn-success", style: "color: #fff;" %>
                 
               </div>
               </td>

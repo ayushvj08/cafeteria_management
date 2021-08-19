@@ -2,11 +2,12 @@
   font-family: Montserrat;
   font-weight: 400;
   font-size: 1rem;
-  color: rgb(0, 0, 209) !important;
+  /* color: rgb(0, 0, 209) !important; */
+  color: black !important;
   text-decoration: none;
 }
 .forgotPassword:hover {
-  color: red;
+  color: cyan !important;
   background: transparent;
 }
 .forgotPassword-container {
