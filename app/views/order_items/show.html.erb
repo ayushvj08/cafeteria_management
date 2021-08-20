@@ -30,7 +30,7 @@
 
   <% # Display mark as delivered button %>
   <div class="container" style="text-align:right;"> 
-    <% if (User.find(session[:current_user_id]).role == "admin" || User.find(session[:current_user_id]).role == "billing staff") && @order.delivered_at == nil %>
+    <% if (@current_user.role == "admin" || @current_user.role == "billing staff") && @order.delivered_at == nil %>
     <p> <%= link_to "Mark As Delivered", order_update_path(@order), method: :put, class: "btn btn-sm btn-primary", style: "color:#fff;" %></p>
     <% end %>
 </div>

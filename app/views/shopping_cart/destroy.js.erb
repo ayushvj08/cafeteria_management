@@ -47,7 +47,7 @@ document.querySelector('article').innerHTML =
                 <% # Group & count %>
 
                 <p class="CartItem-NumberCount"><%= @cart_items.where(menu_item_name: menu_item.name).count %></p>
-                <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :menu_category_name => menu_category.name,
+                <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :id => @cart_items.where(:menu_item_id => menu_item.id).first, :menu_category_name => menu_category.name,
                                      :menu_item_id => menu_item.id, :menu_item_name => menu_item.name,
                                      :menu_item_price => menu_item.price }, remote: true, method: :delete, class: "btn plus-minus btn-success", style: "color: #fff;" %>
                 </div>
@@ -135,7 +135,7 @@ document.querySelector('article').innerHTML =
 
 document.querySelector('section').innerHTML = 
 `
-<header class="alert alert-success alert-dismissible fade show" role="alert"><%= "Added a New Item to Cart." %>
+<header class="alert alert-success alert-dismissible fade show" role="alert"><%= "Removed Item from Cart." %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </header>
 

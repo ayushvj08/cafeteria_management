@@ -38,7 +38,7 @@
                 <% # Group & count %>
 
                 <p class="CartItem-NumberCount"><%= @cart_items.where(menu_item_name: menu_item.name).count %></p>
-                <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :menu_category_name => menu_category.name,
+                <%= button_to "-", { :controller => "shopping_cart", :action => "destroy", :id => @cart_items.where(:menu_item_id => menu_item.id).first, :menu_category_name => menu_category.name,
                                      :menu_item_id => menu_item.id, :menu_item_name => menu_item.name,
                                      :menu_item_price => menu_item.price }, method: :delete, remote: true, class: "btn plus-minus btn-success", style: "color: #fff;" %>
                 </div>
