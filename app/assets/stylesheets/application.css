@@ -123,3 +123,8 @@ a:hover,
 .footer-link:hover {
   background: none;
 }
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 2% 0 1.5% 0;
+  }
+}
