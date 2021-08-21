@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :verify_authenticity_token
   skip_before_action :ensure_user_logged_in
 
   def new
@@ -25,7 +24,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
-      # render plain: "You have entered correct password"
+      flash[:msg] = "Welcome Back #{user.name}!"
       redirect_to "/"
     else
       # render plain: "Incorrect password"

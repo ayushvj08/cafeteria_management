@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # before_action :verify_authenticity_token
-  skip_before_action :verify_authenticity_token, :ensure_user_logged_in, :only => [:new, :create, :reset_password_form, :reset_password]
+  skip_before_action :ensure_user_logged_in,
+                     :only => [:new, :create, :reset_password_form, :reset_password]
 
   def index
     @users = User.all
@@ -30,8 +30,9 @@ class UsersController < ApplicationController
     )
 
     if @new_user.save
-      flash[:msg] = "Account successfully created! Please login to continue."
-      redirect_to new_sessions_path
+      session[:current_user_id] = @new_user.id
+      flash[:msg] = "Account created successfully and Logged In!"
+      redirect_to cafe_path
     else
       flash[:error] = @new_user.errors.full_messages.join(", ")
       redirect_to new_user_path
@@ -43,17 +44,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @new_user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    # @new_user.save!
+    @user = User.find(params[:id])
     # Root
-    if params[:email] == "admin@email.com"
-      flash[:error] == "This is root admin! you can't change his login credentials"
+    if @user.email == "admin@email.com"
+      flash[:error] == "You Cannot Modify Root Admin."
       redirect_to users_path
     else
-      @user = User.find(params[:id])
       @user.name = params[:name]
       @user.email = params[:email]
       @user.password = params[:password]
@@ -72,9 +72,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
+    if @user.email == "admin@email.com"
+      flash[:error] == "You Cannot Modify Root Admin."
+      redirect_to users_path
+    else
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to users_path
+    end
   end
 
   def reset_password_form

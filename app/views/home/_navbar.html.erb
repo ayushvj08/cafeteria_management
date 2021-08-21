@@ -17,7 +17,7 @@
           <% # <a class="nav-link active" aria-current="page" href="#">Browse Menu</a> %>
         </li>
         
-        <% if @current_user != nil %>
+      <% if @current_user != nil %>
 
         <li class="nav-item">
           <%= link_to "Shopping Cart", cafe_cart_path, class: "nav-link ShoppingCart-Navbar" %>
@@ -27,11 +27,9 @@
           <% # <a class="nav-link" href="#">Link</a> %>
         </li>
 
-        <% if @current_user.role == "customer" %>
         <li class="nav-item">
           <%= link_to "Change Password", edit_user_path(@current_user), class: "nav-link" %>
         </li>
-        <% end %>
 
         <% if @current_user.role == "admin" || @current_user.role == "billing staff" %>
 

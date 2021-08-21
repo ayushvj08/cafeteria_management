@@ -5,18 +5,18 @@
 
     <div class="form-group Form-section"  >  
         <% form.label :role, class: "form-label" %>
-        <%= form.text_field :role, :value => @new_user[:role], class: "form-control Form-Input", style: "display:none;" %>
+        <%= form.text_field :role, :value => @user[:role], class: "form-control Form-Input", style: "display:none;" %>
     </div>
 
     <br/>
     <div class="form-group Form-section"> 
         <%= form.label :name, class: "form-label" %> 
-        <%= form.text_field :name, :value => @new_user[:name], class: "form-control Form-Input" %>
+        <%= form.text_field :name, :value => @user[:name], class: "form-control Form-Input" %>
     </div>
    <br/>
     <div class="form-group Form-section"> 
         <%= form.label :email, class: "form-label" %> 
-        <%= form.email_field :email, :value => @new_user[:email], class: "form-control Form-Input", required: "required" %>
+        <%= form.email_field :email, :value => @user[:email], class: "form-control Form-Input", required: "required" %>
     </div>
    <br/>
     <div class="form-group Form-section"> 
@@ -32,10 +32,10 @@
 
 <br/>
 
-<% # <%= link_to "Show", @user, class: "btn rails_link_to" %> 
-<% if @new_user.role == "customer" %>
+<% if @current_user.role == "customer" %>
  <%= link_to "Back", cafe_path, class: "btn btn-outline-primary btn-sm" %>
 <% else %>
 <%= link_to "Back", users_path, class: "btn btn-outline-primary btn-sm" %>
 <% end %>
+
 </div>
