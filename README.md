@@ -9,9 +9,9 @@
 | Billing Staff | billing1@email.com | bill | billing staff |
 
 
+![Screenshot (276)](https://user-images.githubusercontent.com/56788911/135817030-563a5ba7-d065-41a9-8150-191c9e80db94.png)
 
 
-![Screenshot (245)](https://user-images.githubusercontent.com/56788911/126221698-1b4b4a4f-3e64-47b4-916c-c9211c31dcff.png)
 
 I am Ayush Vijayant and this is my project , a Cafeteria Management System built on Rails which supports multiple users and roles like admin, customer, and billing-clerk.
 
