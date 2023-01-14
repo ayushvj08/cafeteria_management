@@ -20,6 +20,3 @@ test:
 production:
   <<: *default
   database: prod_cafeteria_db
-  password: qyAkopkPD6NSmBbuhkq7s0khHHRD0lPA
-  user: prod_cafeteria_db_user
-  host: dpg-cf1b2kun6mpkr6ahoqv0-a
