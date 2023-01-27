@@ -1,6 +1,6 @@
-# Hello!🖐 & Welome to [HotCafe](https://hot-cafe.herokuapp.com/)
+# Hello!🖐 & Welome to [HotCafe](https://hotcafeweb.onrender.com/)
 
-### To get complete eperience of the platform visit *_[HotCafe.com](https://hot-cafe.herokuapp.com/)_* and login via *admin* role
+### To get complete eperience of the platform visit *_[HotCafe.com](https://hotcafeweb.onrender.com/)_* and login via *admin* role
 
 | Name | Email | Password | Role |
 |----  |  -----|  ------- |----  |
